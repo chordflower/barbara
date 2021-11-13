@@ -1,14 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>cc.chordflower.desktop</groupId>
-  <artifactId>markdown-editor</artifactId>
-  <version>0.0.1</version>
-  <name>markdown-editor</name>
-  <url>https://chordflower.cc/projects/markdown-editor</url>
-  <description>A hierarchical markdown editor</description>
+  <groupId>cc.chordflower.desktop.barbara</groupId>
+  <artifactId>barbara-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>barbara-parent</name>
+
+  <modules>
+    <module>barbara-application</module>
+    <module>barbara-docs</module>
+    <module>barbara-spi</module>
+    <module>barbara-plugin-example</module>
+  </modules>
+
+  <url>https://chordflower.cc/projects/barbara</url>
+  <description>A personal information manager - parent pom</description>
   <inceptionYear>2021</inceptionYear>
+
   <developers>
     <developer>
       <id>carddamom</id>
@@ -17,6 +26,7 @@
       <url>https://chordflower.cc/carddamom</url>
     </developer>
   </developers>
+
   <licenses>
     <license>
       <name>Apache-2.0</name>
@@ -25,20 +35,24 @@
       <comments>A business-friendly OSS license</comments>
     </license>
   </licenses>
+
   <organization>
     <name>chrodflower</name>
     <url>https://chordflower.cc</url>
   </organization>
+
   <scm>
-    <connection>scm:git:https://github.com/chordflower/markdown-editor.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com:chordflower/markdown-editor.git</developerConnection>
-    <url>https://github.com/chordflower/markdown-editor</url>
+    <connection>scm:git:https://github.com/chordflower/barbara.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:chordflower/barbara.git</developerConnection>
+    <url>https://github.com/chordflower/barbara</url>
     <tag>develop</tag>
   </scm>
+
   <issueManagement>
     <system>github</system>
-    <url>https://github.com/chordflower/markdown-editor/issues</url>
+    <url>https://github.com/chordflower/barbara/issues</url>
   </issueManagement>
+
   <properties>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -53,6 +67,158 @@
 
     <!-- Packages -->
   </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- Utilities -->
+      <dependency>
+        <groupId>com.google.mug</groupId>
+        <artifactId>mug</artifactId>
+        <version>5.5</version>
+      </dependency>
+      <dependency>
+        <groupId>io.trane</groupId>
+        <artifactId>future-java</artifactId>
+        <version>0.3.2</version>
+      </dependency>
+      <dependency>
+        <groupId>ma.glasnost.orika</groupId>
+        <artifactId>orika-core</artifactId>
+        <version>1.5.4</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>com.github.ben-manes.caffeine</groupId>
+        <artifactId>caffeine</artifactId>
+        <version>3.0.4</version>
+      </dependency>
+      <dependency>
+        <groupId>com.machinezoo.noexception</groupId>
+        <artifactId>noexception</artifactId>
+        <version>1.6.2</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.12.0</version>
+      </dependency>
+
+      <!-- JSON -->
+      <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>2.8.9</version>
+      </dependency>
+
+      <!-- Logging -->
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.32</version>
+      </dependency>
+
+      <!-- JavaFX -->
+      <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-controls</artifactId>
+        <version>17.0.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-graphics</artifactId>
+        <version>17.0.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-base</artifactId>
+        <version>17.0.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-fxml</artifactId>
+        <version>17.0.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-web</artifactId>
+        <version>17.0.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-media</artifactId>
+        <version>17.0.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kordamp.ikonli</groupId>
+        <artifactId>ikonli-javafx</artifactId>
+        <version>12.2.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.controlsfx</groupId>
+        <artifactId>controlsfx</artifactId>
+        <version>11.1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>com.dustinredmond.fxtrayicon</groupId>
+        <artifactId>FXTrayIcon</artifactId>
+        <version>3.1.1</version>
+      </dependency>
+      <dependency>
+        <groupId>com.dlsc.preferencesfx</groupId>
+        <artifactId>preferencesfx-core</artifactId>
+        <version>11.7.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.fxmisc.richtext</groupId>
+        <artifactId>richtextfx</artifactId>
+        <version>0.10.7</version>
+      </dependency>
+
+      <!-- Dependency Injection -->
+      <dependency>
+        <groupId>javax.inject</groupId>
+        <artifactId>javax.inject</artifactId>
+        <version>1</version>
+      </dependency>
+
+      <!-- Validator -->
+      <dependency>
+        <groupId>jakarta.validation</groupId>
+        <artifactId>jakarta.validation-api</artifactId>
+        <version>3.0.0</version>
+      </dependency>
+
+      <!-- Barbara -->
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>barbara-application</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>barbara-spi</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>barbara-plugin-example</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
   <build>
     <pluginManagement>
       <plugins>
@@ -65,6 +231,20 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.1</version>
+          <configuration>
+            <source>17</source>
+            <target>17</target>
+            <parameters>true</parameters>
+            <debug>false</debug>
+            <optimize>true</optimize>
+            <annotationProcessorPaths>
+              <path>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator-annotation-processor</artifactId>
+                <version>7.0.1.Final</version>
+              </path>
+            </annotationProcessorPaths>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -98,15 +278,135 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.2.0</version>
+          <configuration>
+            <archive>
+              <addMavenDescriptor>true</addMavenDescriptor>
+              <compress>true</compress>
+              <index>true</index>
+              <manifest>
+                <addClasspath>true</addClasspath>
+                <addDefaultEntries>true</addDefaultEntries>
+                <addBuildEnvironmentEntries>true</addBuildEnvironmentEntries>
+                <mainClass/>
+                <useUniqueVersions>true</useUniqueVersions>
+              </manifest>
+              <manifestEntries>
+                <Build-Number>${buildNumber}</Build-Number>
+              </manifestEntries>
+            </archive>
+          </configuration>
         </plugin>
-
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>3.2.0</version>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>jar-no-fork</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-doap-plugin</artifactId>
+          <version>1.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-artifact-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>buildnumber-maven-plugin</artifactId>
+          <version>1.4</version>
+          <executions>
+            <execution>
+              <phase>validate</phase>
+              <goals>
+                <goal>create</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>3.0.0</version>
+          <executions>
+            <execution>
+              <id>enforce-versions</id>
+              <goals>
+                <goal>enforce</goal>
+              </goals>
+              <configuration>
+                <rules>
+                  <requireJavaVersion>
+                    <version>17</version>
+                  </requireJavaVersion>
+                </rules>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
+  </build>
+
+  <reporting>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
+        <artifactId>maven-linkcheck-plugin</artifactId>
+        <version>1.2</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>3.1.2</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>dependencies</report>
+              <report>dependency-convergence</report>
+              <report>dependency-info</report>
+              <report>dependency-management</report>
+              <report>index</report>
+              <report>issue-management</report>
+              <report>licenses</report>
+              <report>plugin-management</report>
+              <report>plugins</report>
+              <report>team</report>
+              <report>scm</report>
+              <report>summary</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>2.8.1</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>dependency-updates-report</report>
+              <report>plugin-updates-report</report>
+              <report>property-updates-report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.rat</groupId>
+        <artifactId>apache-rat-plugin</artifactId>
+        <version>0.13</version>
       </plugin>
     </plugins>
-  </build>
+  </reporting>
+
 </project>

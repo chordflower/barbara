@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://chordflower.cc/desktop/barbara/plugin.schema.json",
+  "description": "Json schema for the barbara plugin descriptor",
+  "type":"object",
+  "additionalProperties": true,
+  "required": ["name","$id","license","version"],
+  "properties": {
+    "name": {
+      "type":"string",
+      "description": "The plugin name that is shown to the user",
+      "minLength": 5
+    },
+    "$id": {
+      "type":"string",
+      "format": "uuid",
+      "description": "The internal plugin id, must be unique"
+    },
+    "description": {
+      "type":"string",
+      "description": "A small description of what the plugin does"
+    },
+    "license": {
+      "type":"string",
+      "description": "The SPDXLicense id, of the plugin license",
+      "minLength":2
+    },
+    "version": {
+      "type":"string",
+      "description": "A semver string containing the version of the plugin",
+      "minLength": 1
+    },
+    "dependencies": {
+      "type":"array",
+      "description": "A list of plugin dependencies of this plugin",
+      "additionalItems": false,
+      "items": {
+        "type":"object",
+        "description": "A description of a dependency of this plugin",
+        "additionalProperties": true,
+        "required": [],
+        "properties": {
+          "$id": {
+            "type":"string",
+            "format": "uuid",
+            "description": "The id of the plugin dependency"
+          },
+          "version": {
+            "type":"string",
+            "description": "The version of the plugin dependency"
+          }
+        }
+      }
+    }
+  }
+}

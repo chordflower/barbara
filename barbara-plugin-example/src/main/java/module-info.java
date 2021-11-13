@@ -1,0 +1,2 @@
+module barbara.plugin.example {
+}
