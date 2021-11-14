@@ -17,6 +17,7 @@ package cc.chordflower.desktop.barbara;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * This is the main class for the barbara application.
@@ -30,7 +31,7 @@ public final class BarbaraApplication extends Application {
    *
    * @param args The application arguments.
    */
-  public static void main( String[ ] args ) {
+  public static void main( String[] args ) {
 
     Application.launch( args );
 
@@ -40,10 +41,9 @@ public final class BarbaraApplication extends Application {
    * Creates the main screen.
    *
    * @param primaryStage The stage to use.
-   * @throws Exception If an exception happens.
    */
   @Override
-  public void start( Stage primaryStage ) throws Exception {
+  public void start( @NotNull Stage primaryStage ) {
 
     primaryStage.show( );
 

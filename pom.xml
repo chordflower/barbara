@@ -72,6 +72,11 @@
     <dependencies>
       <!-- Utilities -->
       <dependency>
+        <groupId>org.jetbrains</groupId>
+        <artifactId>annotations</artifactId>
+        <version>23.0.0</version>
+      </dependency>
+      <dependency>
         <groupId>com.google.mug</groupId>
         <artifactId>mug</artifactId>
         <version>5.5</version>
@@ -118,7 +123,7 @@
       <dependency>
         <groupId>com.google.code.gson</groupId>
         <artifactId>gson</artifactId>
-        <version>2.8.9</version>
+        <version>2.8.5</version>
       </dependency>
 
       <!-- Logging -->
@@ -216,6 +221,22 @@
         <version>${project.version}</version>
       </dependency>
 
+      <!--  For testing-->
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.8.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-junit-jupiter</artifactId>
+        <version>4.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>com.mscharhag.oleaster</groupId>
+        <artifactId>oleaster-matcher</artifactId>
+        <version>0.2.0</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -291,6 +312,7 @@
                 <useUniqueVersions>true</useUniqueVersions>
               </manifest>
               <manifestEntries>
+                <!--suppress UnresolvedMavenProperty -->
                 <Build-Number>${buildNumber}</Build-Number>
               </manifestEntries>
             </archive>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <artifactId>barbara-parent</artifactId>
@@ -12,7 +12,7 @@
   <artifactId>barbara-application</artifactId>
 
   <url>https://chordflower.cc/projects/barbara</url>
-  <description>A personal information manager - parent pom</description>
+  <description>A personal information manager - application</description>
   <inceptionYear>2021</inceptionYear>
 
   <developers>
@@ -69,6 +69,10 @@
 
     <!-- Utilities -->
     <dependency>
+      <groupId>org.jetbrains</groupId>
+      <artifactId>annotations</artifactId>
+    </dependency>
+    <dependency>
       <groupId>com.google.mug</groupId>
       <artifactId>mug</artifactId>
     </dependency>
@@ -114,10 +118,22 @@
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>javafx-graphics</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-graphics</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>javafx-base</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
@@ -126,14 +142,36 @@
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>javafx-controls</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-web</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>javafx-controls</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>javafx-media</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-media</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>javafx-graphics</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.kordamp.ikonli</groupId>
@@ -150,6 +188,24 @@
     <dependency>
       <groupId>com.dlsc.preferencesfx</groupId>
       <artifactId>preferencesfx-core</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>javafx-base</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>javafx-controls</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>javafx-fxml</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>javafx-graphics</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.fxmisc.richtext</groupId>
@@ -172,21 +228,49 @@
       <groupId>org.spongepowered</groupId>
       <artifactId>configurate-core</artifactId>
       <version>4.1.2</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>error_prone_annotations</artifactId>
+          <groupId>com.google.errorprone</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>checker-qual</artifactId>
+          <groupId>org.checkerframework</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.spongepowered</groupId>
       <artifactId>configurate-hocon</artifactId>
       <version>4.1.2</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>error_prone_annotations</artifactId>
+          <groupId>com.google.errorprone</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.spongepowered</groupId>
       <artifactId>configurate-yaml</artifactId>
       <version>4.1.2</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>error_prone_annotations</artifactId>
+          <groupId>com.google.errorprone</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.spongepowered</groupId>
       <artifactId>configurate-xml</artifactId>
       <version>4.1.2</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>error_prone_annotations</artifactId>
+          <groupId>com.google.errorprone</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <!-- Validator -->
@@ -198,11 +282,27 @@
     <dependency>
       <groupId>org.glassfish</groupId>
       <artifactId>jakarta.el</artifactId>
-      <version>4.0.0</version>
     </dependency>
     <dependency>
       <groupId>jakarta.validation</groupId>
       <artifactId>jakarta.validation-api</artifactId>
+    </dependency>
+
+    <!-- testing -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.mscharhag.oleaster</groupId>
+      <artifactId>oleaster-matcher</artifactId>
+      <scope>test</scope>
     </dependency>
 
   </dependencies>
@@ -255,7 +355,7 @@
               <addClasspath>true</addClasspath>
               <addDefaultEntries>true</addDefaultEntries>
               <addBuildEnvironmentEntries>true</addBuildEnvironmentEntries>
-              <mainClass></mainClass>
+              <mainClass>cc.chordflower.desktop.barbara.BarbaraApplication</mainClass>
               <useUniqueVersions>true</useUniqueVersions>
             </manifest>
             <manifestEntries>

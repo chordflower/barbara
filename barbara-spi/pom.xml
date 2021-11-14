@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <artifactId>barbara-parent</artifactId>
@@ -61,13 +61,15 @@
     <maven.compiler.debug>false</maven.compiler.debug>
     <maven.compiler.useIncrementalCompilation>true</maven.compiler.useIncrementalCompilation>
     <maven.clean.retryOnError>true</maven.clean.retryOnError>
-
-    <!-- Packages -->
   </properties>
 
   <dependencies>
 
     <!-- Utilities -->
+    <dependency>
+      <groupId>org.jetbrains</groupId>
+      <artifactId>annotations</artifactId>
+    </dependency>
     <dependency>
       <groupId>com.google.mug</groupId>
       <artifactId>mug</artifactId>
@@ -109,10 +111,22 @@
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>javafx-graphics</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-graphics</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>javafx-base</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
@@ -121,14 +135,36 @@
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>javafx-controls</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-web</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>javafx-controls</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>javafx-media</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-media</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>javafx-graphics</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.kordamp.ikonli</groupId>
@@ -145,6 +181,24 @@
     <dependency>
       <groupId>com.dlsc.preferencesfx</groupId>
       <artifactId>preferencesfx-core</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>javafx-base</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>javafx-controls</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>javafx-fxml</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>javafx-graphics</artifactId>
+          <groupId>org.openjfx</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.fxmisc.richtext</groupId>
@@ -206,11 +260,8 @@
             <compress>true</compress>
             <index>true</index>
             <manifest>
-              <addClasspath>true</addClasspath>
               <addDefaultEntries>true</addDefaultEntries>
               <addBuildEnvironmentEntries>true</addBuildEnvironmentEntries>
-              <mainClass></mainClass>
-              <useUniqueVersions>true</useUniqueVersions>
             </manifest>
             <manifestEntries>
               <Build-Number>${buildNumber}</Build-Number>
