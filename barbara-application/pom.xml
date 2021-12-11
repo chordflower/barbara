@@ -96,6 +96,11 @@
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.vdurmont</groupId>
+      <artifactId>semver4j</artifactId>
+      <version>3.1.0</version>
+    </dependency>
 
     <!-- JSON -->
     <dependency>
@@ -107,7 +112,7 @@
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.2.6</version>
+      <version>1.2.7</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -241,7 +246,7 @@
     </dependency>
     <dependency>
       <groupId>org.spongepowered</groupId>
-      <artifactId>configurate-hocon</artifactId>
+      <artifactId>configurate-gson</artifactId>
       <version>4.1.2</version>
       <exclusions>
         <exclusion>
@@ -282,6 +287,7 @@
     <dependency>
       <groupId>org.glassfish</groupId>
       <artifactId>jakarta.el</artifactId>
+      <version>4.0.1</version>
     </dependency>
     <dependency>
       <groupId>jakarta.validation</groupId>
@@ -330,6 +336,29 @@
             </path>
           </annotationProcessorPaths>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>run-barbara</id>
+            <phase>none</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <configuration>
+              <executable>java</executable>
+              <arguments>
+                <argument>--module-path</argument>
+                <modulepath/>
+                <argument>--module</argument>
+                <argument>barbara.application/cc.chordflower.desktop.barbara.BarbaraApplication</argument>
+              </arguments>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>

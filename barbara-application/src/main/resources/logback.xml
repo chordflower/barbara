@@ -8,19 +8,19 @@
       <pattern>[%highlight(%-5level)][%date{ISO8601}]%class:%method\( %line \) - %message %n %exception</pattern>
     </encoder>
   </appender>
-  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>${BARBARA_LOG_PATH}/barbara.log</file>
-    <append>true</append>
-    <immediateFlush>false</immediateFlush>
-    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>${BARBARA_LOG_PATH}/%d{yyyy, aux}/%d{MM, aux}/barbara.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
-      <maxHistory>8192</maxHistory>
-      <cleanHistoryOnStart>true</cleanHistoryOnStart>
-    </rollingPolicy>
-    <encoder>
-      <pattern>[%-5level][%date{ISO8601}]%class:%method\( %line \) - %message %n %exception</pattern>
-    </encoder>
-  </appender>
+  <!--  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+  <!--    <file>${BARBARA_LOG_PATH}/barbara.log</file>-->
+  <!--    <append>true</append>-->
+  <!--    <immediateFlush>false</immediateFlush>-->
+  <!--    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+  <!--      <fileNamePattern>${BARBARA_LOG_PATH}/%d{yyyy, aux}/%d{MM, aux}/barbara.%d{yyyy-MM-dd}.log.gz</fileNamePattern>-->
+  <!--      <maxHistory>8192</maxHistory>-->
+  <!--      <cleanHistoryOnStart>true</cleanHistoryOnStart>-->
+  <!--    </rollingPolicy>-->
+  <!--    <encoder>-->
+  <!--      <pattern>[%-5level][%date{ISO8601}]%class:%method\( %line \) - %message %n %exception</pattern>-->
+  <!--    </encoder>-->
+  <!--  </appender>-->
   <root level="debug">
     <appender-ref ref="STDOUT"/>
     <!--     <appender-ref ref="FILE" /> -->
